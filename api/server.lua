@@ -63,6 +63,7 @@ local function _M.build_app()
 		if not auth_enable then
 			next()
 		end
+		
 		local authorization = req.headers["Authorization"]
 		if type(authorization) == "string" and authorization ~= "" then
 			for i,v in ipairs(credentials) do
