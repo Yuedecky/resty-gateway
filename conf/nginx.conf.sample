@@ -14,6 +14,7 @@ events {
 }
 
 
+
 http {
     include       mime.types;
     default_type  application/octet-stream;
@@ -70,7 +71,40 @@ http {
         require "cjson"
     }
 
-    
+    server {
+        listen 1234 ssl;
+        server_name seassoon-ssl;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        ssl_ciphers AES128-SHA:AES256-SHA:RC4-SHA:DES-CBC3-SHA:RC4-MD5;
+        ssl_certificate ssl/server.csr;
+        ssl_certificate_key ssl/server.key;
+        ssl_session_cache shared:SSL:10m;
+        ssl_session_timeout 10m;
+
+
+        ssl_stapling on;
+        ssl_stapling_verify on;
+        
+        location /ssl {
+            # content_by_lua_block {
+
+            #     local sock, err = ngx.req.socket(true)
+            #     if err then
+            #         ngx.sya("connection err",err)
+            #     end
+            #     local data = sock:receive()
+            #     if data == 'thunder' then
+            #         ngx.say("flash!")
+            #     else
+            #         ngx.say("boom!")
+            #     end
+            #     ngx.say("the end...")
+            # }
+            content_by_lua_file lua-scripts/test_port_handler.lua;
+
+            
+        }
+    }
 
     #gzip  on;
 
@@ -199,6 +233,9 @@ http {
              
         }
 
+        location /sock {
+            content_by_lua_file lua-scripts/sock.lua;
+        }
 
         #error_page  404              /404.html;
 
