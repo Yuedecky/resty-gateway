@@ -80,5 +80,36 @@ local function _M.build_app()
 		-- body
 	end)
 
+	app:use(router(config,store)())
+
+	app:erroruse(function(err,req,res,next)
+		ngx.log(ngx.ERR,err)
+		if req:is_founc() ~= true then
+			return res:status(404):json({
+				success = false,
+				msg = "404"
+			})
+
+		-- body
+	end
+	res:status(500):json({
+		success = false,
+		msg = "500! server error"
+	})
+
+	end)
+end
+
+function _M.get_app()
+	return self.app
+
+	-- body
+end
+
+return _M
+
+
+
+
 
 
