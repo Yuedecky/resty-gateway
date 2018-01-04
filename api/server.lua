@@ -14,6 +14,10 @@ local string_gsub = string.gsub
 
 local lor = require("lor.index")
 
+local status = require "app.conf.http_status"
+
+local constants = require "app.conf.error_constants"
+
 --[[
 	认证失败的方法
 ]]
@@ -63,7 +67,6 @@ function _M.build_app()
 		if not auth_enable then
 			next()
 		end
-		
 		local authorization = req.headers["Authorization"]
 		if type(authorization) == "string" and authorization ~= "" then
 			for i,v in ipairs(credentials) do
@@ -74,9 +77,7 @@ function _M.build_app()
 				end
 			end
 		end
-
 		auth_failed(authorization)
-
 	end)
 
 	app:use(router(config,store)())
@@ -90,11 +91,10 @@ function _M.build_app()
 			})
 
 	end
-	res:status(500):json({
+	res:status(status.HTTP_INTERNAL_SERVER_ERROR):json({
 		success = false,
-		msg = "500! server error"
+		msg = constants.INTERNAL_SERVER_ERROR
 	})
-
 	end)
 end
 
