@@ -4,6 +4,10 @@ local constants = require "conf.error_constants"
 local cjson = require "resty.cjson"
 local _M = {}
 
+local mt = {
+    __index = _M
+}
+
 --[[
     只允许POST请求
 ]]
@@ -72,7 +76,7 @@ function _M.verify_token(token)
 
     if not jwt_obj['verified'] then
         ngx.stats = stats.HTTP_UNAUTHORIZED_ERROR
-        ngx.log(ngx.ERR,constants.HTTP_UNAUTHORIZED_ERROR)
+        ngx.log(ngx.ERR,constants.UNAUTHORIZED_ERROR)
         return
     end
     -- body

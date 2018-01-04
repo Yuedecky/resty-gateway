@@ -65,6 +65,19 @@ return {
 		}
 
 	},
+	redis = {
+		port = 6379,
+		host = "127.0.0.1",
+		maxlockwait = 10000, --sec
+		spinlockwait = 10000, --sec
+		pool = {
+			timeout = 10000, --sec
+			size = 200, -- n
+		},
+		session_prefix = "$seassoon:session:redis_",
+		password = "$seassoon:gateway:redis:password$",
+		auth = true
+	},
 
 	upload_config =  {
 		dir = "/data/seassoon-api-gateway-data/static" ---- 文件目录，修改此值时须同时修改nginx配置文件中的$static_files_path值
