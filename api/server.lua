@@ -77,7 +77,6 @@ function _M.build_app()
 
 		auth_failed(authorization)
 
-		-- body
 	end)
 
 	app:use(router(config,store)())
@@ -90,7 +89,6 @@ function _M.build_app()
 				msg = "404"
 			})
 
-		-- body
 	end
 	res:status(500):json({
 		success = false,
@@ -102,8 +100,6 @@ end
 
 function _M.get_app()
 	return self.app
-
-	-- body
 end
 
 return _M

@@ -7,6 +7,7 @@ local mt = {
 	__index = _M
 }
 
+jwt_secret = "seassoon:auth:jwt:_"
 
 local _conf = nil
 
