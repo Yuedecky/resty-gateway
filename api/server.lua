@@ -49,7 +49,7 @@ function _M.new(config, store)
 	return instance
 end
 
-local function _M.build_app()
+function _M.build_app()
 	local config = self.config
 	local store = self.store
 	local app = self.app
