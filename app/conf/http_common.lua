@@ -73,7 +73,6 @@ end
 ]]
 function _M.verify_token(token)
     local jwt_obj = jwt:verify(vars.jwt_salt(),token)
-
     if not jwt_obj['verified'] then
         ngx.stats = stats.HTTP_UNAUTHORIZED_ERROR
         ngx.log(ngx.ERR,constants.UNAUTHORIZED_ERROR)
