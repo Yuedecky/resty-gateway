@@ -1,3 +1,8 @@
+--[[
+    author: yuezy
+    date: 2018/1/5
+    desc: 会话的存储操作类
+]]
 local xpcall = xpcall
 local traceback = debug.traceback
 local ngx_time = ngx.time

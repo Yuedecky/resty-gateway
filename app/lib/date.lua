@@ -10,6 +10,7 @@
 --[[ CONSTANTS ]]--
 --[[
    author: Tieske
+   link: https://github.com/Tieske/date
    desc: 线程安全的日期类
 ]]
 local HOURPERDAY  = 24

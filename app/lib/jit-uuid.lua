@@ -12,7 +12,11 @@
 -- @license MIT
 -- @release 0.0.5
 
-
+--[[
+    author: thibaultcha
+    date: unkonwn
+    desc: 使用jit编译器跑出来的性能高效的uuid工具类
+]]
 local bit = require 'bit'
 
 
