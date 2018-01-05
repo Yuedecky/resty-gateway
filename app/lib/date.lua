@@ -8,6 +8,10 @@
 -- Licensed under MIT, http://opensource.org/licenses/MIT
 
 --[[ CONSTANTS ]]--
+--[[
+   author: Tieske
+   desc: 线程安全的日期类
+]]
 local HOURPERDAY  = 24
 local MINPERHOUR  = 60
 local MINPERDAY    = 1440  -- 24*60

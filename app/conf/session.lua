@@ -47,14 +47,11 @@ local session_middleware = function(config)
             get = function(key)
                 local s = session.open({
                     secret = config.secret
-
                 })
                 s.cookie.persistent = true
                 s.cookie.lifetime = config.lifetime
                 s.expires = ngx_time + config.timeout
                 s.save()
-
-                -- body
             end,
             update = function (key,value)
                 local s = session.start({
@@ -63,15 +60,12 @@ local session_middleware = function(config)
                 s.cookie.persistent = true
                 s.expires = ngx_time() + config.timeout
                 s.cookie.lifetime = config.lifetime
-
-                -- body
             end,
             destory = function()
                 local s = session.start({
                     secret = config.secret
                 })
                 s.destory()
-                -- body
             end
 
         }
