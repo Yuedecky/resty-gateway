@@ -18,10 +18,6 @@ function DB:parse_sql(sql,params)
     if not params or not utils.table_is_array(params) or #params == 0 then
         return sql
     end
-
-
-
-    -- body
 end
 
 --[[

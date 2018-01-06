@@ -39,7 +39,6 @@ local _M = {}
 local mt = {__index = _M}
 
 --[[
-
 实例化方法，需要传入config和store参数
 引用web框架lor
 ---]]
