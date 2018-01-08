@@ -14,7 +14,7 @@ local function check_is_admin()
         if to_check then
             local id_admin = false
             if req and req.session and req.session.get("user") then
-                is_admin = req,session.get("user").is_admin
+                is_admin = req.session.get("user").is_admin
                 if is_admin or is_admin == "1" then
                     id_admin = true
                 end
