@@ -42,7 +42,7 @@ local upvalueid = debug.upvalueid or function() return {} end
 local table = require "table"
 local concat = table.concat
 
-module("serialize")
+module("serialize") -- 有疑问？
 
 local core_objects
 
