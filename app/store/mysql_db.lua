@@ -11,7 +11,7 @@ function DB:new(conf)
     local instance = {}
     instance.conf = conf
     setmetatable(instance,{__index = self})
-    return instance
+    return instance 
 end
 
 -- 执行sql脚本的函数 
