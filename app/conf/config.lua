@@ -37,7 +37,7 @@ return {
 
 	-- 分页时每页条数配置
 	page_config = {
-		index_topic_page_size = 10, -- 首页每页文章数
+		index_topic_page_size = 10, -- 首页每页post数量
 		topic_comment_page_size = 20, -- 文章详情页每页评论数
 		notification_page_size = 10, -- 通知每页个数
 	},
