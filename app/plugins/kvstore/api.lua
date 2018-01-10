@@ -10,7 +10,7 @@ local status = require "app.conf.http_status"
 local rformat= require "return_format"
 
 local BaseAPI = require("app.plugins.base_api")
-
+    
 --[[
 send_err_result 发送错误请求
 ]]
@@ -90,6 +90,7 @@ API:post("/kvstore/enable",function(store)
             enable = false
         end
         local result = false
+<<<<<<< HEAD
         local kvstore_enable = "0"
         if enable then
             kvstore_enable = "1"
@@ -273,6 +274,9 @@ API:post("/kvstore/configs",function(store)
             success = true,
             data = data
         })
+=======
+
+>>>>>>> e6034948e538b094db5ee749aeeb5b1b3ba41c26
 
     end
 end)
