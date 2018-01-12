@@ -52,7 +52,9 @@ local function now()
     return ngx.now() *1000
 end
 
-
+--[[
+    初始化app
+]]
 function App.init(options)
 
     options = options or {}
@@ -113,7 +115,9 @@ function App.init_worker()
     end
 end
 
-
+--[[
+    重定向
+]]
 function App.redirect()
 
     ngx.ctx.SEASSOON_REDIRECT_START = now()
