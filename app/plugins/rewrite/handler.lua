@@ -64,7 +64,7 @@ end
 
 
 
-local RewriteHandler:rewrite(conf)
+function RewriteHandler:rewrite(conf)
     RewriteHandler.super.rewrite(self)
     local enable = seassoon_db.get("rewrite.enable")
     local meta = seassoon_db.get_json("rewrite.meta")

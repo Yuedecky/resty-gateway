@@ -1,5 +1,3 @@
-local type = type
-
 local ipairs = ipairs
 
 local setmetatable = setmetatable
