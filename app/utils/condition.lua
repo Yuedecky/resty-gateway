@@ -5,8 +5,8 @@ local ngx_re_find = ngx.re.find
 local slower = string.lower
 local ngx_re_match = ngx.re.match
 local tonumber = tonumber
-
-local function assert_condition(real,operator,expected)
+local _M ={}
+function _M:assert_condition(real,operator,expected)
     if not real then
         ngx.log(ngx.ERR,sformat("assert condition err: real value:{%s},operator vlaue:{%s},expected value:{%s}",real,operator,expected))
         return false
@@ -62,7 +62,7 @@ end
 
 
 
-local function transfer_2_number(...)
+function _M:transfer_2_number(...)
     local tab = {...}
     local res ,err
     if tab.getn > 2 then

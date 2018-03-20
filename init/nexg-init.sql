@@ -266,6 +266,40 @@ VALUES
 UNLOCK TABLES;
 
 
+
+/*!40000 ALTER TABLE `redirect` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table token_bucket
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `token_bucket`;
+
+CREATE TABLE `token_bucket` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `key` varchar(255) NOT NULL DEFAULT '',
+  `value` varchar(2000) NOT NULL DEFAULT '',
+  `type` varchar(11) DEFAULT '0',
+  `created_by` varchar(255) default '',
+  `max_permits` int(11) default 1024,
+  `update_by` varchar(255) default '',
+  `rate` mediumint(8) default 1024,
+  `op_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_key` (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `token_bucket` WRITE;
+/*!40000 ALTER TABLE `rewrite` DISABLE KEYS */;
+
+INSERT INTO `rewrite` (`id`, `key`, `value`, `type`,`created_by`,`max_permits`,`update_by`,`rate`, `op_time`)
+VALUES
+    (1,'1','{}','meta','yuezhiyong',1048576,'broad',1024,'2016-11-11 11:11:11');
+
+/*!40000 ALTER TABLE `rewrite` ENABLE KEYS */;
+UNLOCK TABLES;
+
 # Dump of table waf
 # ------------------------------------------------------------
 
