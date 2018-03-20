@@ -46,7 +46,7 @@ local function filter_rules(sid,plugin,ngx_var_uri,ngx_var_host,ngx_var_schema,n
                         if ngx_var_args ~= nil then
                             -- ngx var 有附加参数
                             if sfind(to_redirect,"?") then -- 不存在 '?' 也就是说  url附加的参数只有一个
-                                if handle.trim_qs = true then -- trim_qs
+                                if handle.trim_qs == true then -- trim_qs
                                     to_redirect = to_redirect .. "&" .. ngx_var_ars
                                 end
                         else
@@ -75,7 +75,7 @@ local RedirectHandler = base_plugin:extend()
 RedirectHandler.PRIORITY = 2000
 
 function RedirectHandler:new(store)
-    RedirectHandler.super.redirect（self）
+    RedirectHandler.super.redirect(self)
     self.store = store
 end
 

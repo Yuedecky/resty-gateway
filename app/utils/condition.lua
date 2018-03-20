@@ -6,6 +6,7 @@ local slower = string.lower
 local ngx_re_match = ngx.re.match
 local tonumber = tonumber
 local _M ={}
+
 function _M:assert_condition(real,operator,expected)
     if not real then
         ngx.log(ngx.ERR,sformat("assert condition err: real value:{%s},operator vlaue:{%s},expected value:{%s}",real,operator,expected))
@@ -58,6 +59,7 @@ function _M:assert_condition(real,operator,expected)
             end
         end
         return false
+    end
 end
 
 
